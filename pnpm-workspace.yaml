@@ -2,5 +2,6 @@ packages:
   - mobile
   - admin
   - shared
+nodeLinker: hoisted
 onlyBuiltDependencies:
   - sharp
