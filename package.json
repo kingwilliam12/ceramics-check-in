@@ -22,7 +22,7 @@
   "dependencies": {
     "@expo/cli": "^0.24.13",
     "@expo/config": "^11.0.10",
-    "expo-router": "3.4.8",
+    "expo-router": "5.0.7",
     "metro": "0.82.3"
   }
 }
