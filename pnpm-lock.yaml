@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@expo/cli':
+        specifier: ^0.24.13
+        version: 0.24.13(graphql@15.8.0)
       expo-router:
         specifier: 3.4.8
         version: 3.4.8(1132725e94e195c790b92027511db7a1)

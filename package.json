@@ -20,6 +20,7 @@
     "shared"
   ],
   "dependencies": {
+    "@expo/cli": "^0.24.13",
     "expo-router": "3.4.8"
   }
 }
