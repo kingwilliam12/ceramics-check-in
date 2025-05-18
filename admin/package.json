@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "echo 'next dev placeholder'",
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
     "lint": "echo 'lint admin'",
     "test": "jest --passWithNoTests --runInBand",
-    "type-check": "tsc -p tsconfig.json --noEmit"
+    "type-check": "tsc -p tsconfig.json --noEmit",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "next": "15.0.0",
@@ -24,6 +27,7 @@
     "ts-jest": "^29.1.1",
     "@testing-library/react": "^14.1.2",
     "@testing-library/jest-dom": "^6.2.0",
-    "jest-environment-jsdom": "^29.7.0"
+    "jest-environment-jsdom": "^29.7.0",
+    "@playwright/test": "^1.44.0"
   }
 }
