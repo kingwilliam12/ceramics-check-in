@@ -36,6 +36,12 @@ importers:
 
   admin:
     dependencies:
+      '@supabase/ssr':
+        specifier: ^0.0.1
+        version: 0.0.1(@supabase/supabase-js@2.49.4)
+      '@supabase/supabase-js':
+        specifier: ^2.42.4
+        version: 2.49.4
       '@tanstack/react-table':
         specifier: ^8.0.0
         version: 8.21.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -1402,6 +1408,11 @@ packages:
   '@supabase/realtime-js@2.11.2':
     resolution: {integrity: sha512-u/XeuL2Y0QEhXSoIPZZwR6wMXgB+RQbJzG9VErA3VghVt7uRfSVsjeqd7m5GhX3JR6dM/WRmLbVR8URpDWG4+w==}
 
+  '@supabase/ssr@0.0.1':
+    resolution: {integrity: sha512-WARu90FJQPUO4r8yqzeMda4gvOSKJx35tBYmFU2SVgZ4m/zEhE6O67ryHs6r4p6x1rwHep0FGPaZ8oKACR9i1g==}
+    peerDependencies:
+      '@supabase/supabase-js': ^2.33.1
+
   '@supabase/storage-js@2.7.1':
     resolution: {integrity: sha512-asYHcyDR1fKqrMpytAS1zjyEfvxuOIp1CIXX7ji4lHHcJKqyk+sLl/Vxgm4sN6u8zvuUtae9e4kDxQP2qrwWBA==}
 
@@ -2077,6 +2088,10 @@ packages:
 
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
+
+  cookie@0.5.0:
+    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
+    engines: {node: '>= 0.6'}
 
   core-js-compat@3.42.0:
     resolution: {integrity: sha512-bQasjMfyDGyaeWKBIu33lHh9qlSR0MFE/Nmc6nMjf/iU9b3rSMdAYz1Baxrv4lPdGUsTqZudHA4jIGSJy0SWZQ==}
@@ -3772,6 +3787,9 @@ packages:
   quick-lru@4.0.1:
     resolution: {integrity: sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==}
     engines: {node: '>=8'}
+
+  ramda@0.29.1:
+    resolution: {integrity: sha512-OfxIeWzd4xdUNxlWhgFazxsA/nl3mS4/jGZI5n00uWOoSSFRhC1b6gl6xvmzUamgmqELraWp0J/qqVlXYPDPyA==}
 
   randombytes@2.1.0:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
@@ -6668,6 +6686,12 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
+  '@supabase/ssr@0.0.1(@supabase/supabase-js@2.49.4)':
+    dependencies:
+      '@supabase/supabase-js': 2.49.4
+      cookie: 0.5.0
+      ramda: 0.29.1
+
   '@supabase/storage-js@2.7.1':
     dependencies:
       '@supabase/node-fetch': 2.6.15
@@ -7437,6 +7461,8 @@ snapshots:
       split2: 3.2.2
 
   convert-source-map@2.0.0: {}
+
+  cookie@0.5.0: {}
 
   core-js-compat@3.42.0:
     dependencies:
@@ -9412,6 +9438,8 @@ snapshots:
       inherits: 2.0.4
 
   quick-lru@4.0.1: {}
+
+  ramda@0.29.1: {}
 
   randombytes@2.1.0:
     dependencies:
