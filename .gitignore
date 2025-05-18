@@ -1,14 +1,25 @@
+# Dependencies
 node_modules
 .pnpm
+
+# Build outputs
 .turbo
 .expo
 .next
+
+# OS-specific
 .DS_Store
+
+# Ruby / Bundler
 vendor/bundle
 vendor/cache
 vendor/gems
 vendor/rubynode_modules
-.pnpm
-.turbo
-.expo
-.next
+
+# Environment variables
+**/.env
+.env.*
+!.env.example
+
+# Specifically for the mobile app's .env
+mobile/.env

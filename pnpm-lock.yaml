@@ -127,6 +127,9 @@ importers:
       react-native-gesture-handler:
         specifier: ~2.15.0
         version: 2.15.0(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+      react-native-url-polyfill:
+        specifier: ^2.0.0
+        version: 2.0.0(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))
     devDependencies:
       '@babel/core':
         specifier: ^7.25.2
@@ -4152,6 +4155,11 @@ packages:
     resolution: {integrity: sha512-Tw21NGuXm3PbiUGtZd0AnXirUixaAbPXDjNR0baBH7/WJDaDTTELLcQ7QRXuqAWbmr/EVCrKj1348ei1KFIr8A==}
     peerDependencies:
       react: '*'
+      react-native: '*'
+
+  react-native-url-polyfill@2.0.0:
+    resolution: {integrity: sha512-My330Do7/DvKnEvwQc0WdcBnFPploYKp9CYlefDXzIdEaA+PAhDYllkvGeEroEzvc4Kzzj2O4yVdz8v6fjRvhA==}
+    peerDependencies:
       react-native: '*'
 
   react-native@0.79.2:
@@ -10180,6 +10188,11 @@ snapshots:
       react-freeze: 1.0.4(react@19.0.0)
       react-native: 0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)
       warn-once: 0.1.1
+
+  react-native-url-polyfill@2.0.0(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)):
+    dependencies:
+      react-native: 0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)
+      whatwg-url-without-unicode: 8.0.0-3
 
   react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0):
     dependencies:
