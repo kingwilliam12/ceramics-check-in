@@ -23,14 +23,10 @@ export default function MemberForm({ member, onSaved }: Props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Name
-        <input value={fullName} onChange={e => setFullName(e.target.value)} />
-      </label>
-      <label>
-        Email
-        <input value={email} onChange={e => setEmail(e.target.value)} />
-      </label>
+      <label htmlFor="fullName">Name</label>
+      <input id="fullName" aria-label="Name" value={fullName} onChange={e => setFullName(e.target.value)} />
+      <label htmlFor="email">Email</label>
+      <input id="email" aria-label="Email" value={email} onChange={e => setEmail(e.target.value)} />
       <button type="submit">Save</button>
     </form>
   );
