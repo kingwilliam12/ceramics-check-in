@@ -67,12 +67,18 @@ importers:
       expo:
         specifier: ~53.0.9
         version: 53.0.9(@babel/core@7.27.1)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+      expo-location:
+        specifier: ~18.0.1
+        version: 18.0.10(expo@53.0.9(@babel/core@7.27.1)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))
       expo-router:
         specifier: ~5.0.7
         version: 5.0.7(df90168495785bc1172dba224f8534a5)
       expo-status-bar:
         specifier: ~2.2.3
         version: 2.2.3(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+      expo-task-manager:
+        specifier: ~11.5.0
+        version: 11.5.0(expo@53.0.9(@babel/core@7.27.1)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))
       i18next:
         specifier: ^23.10.1
         version: 23.16.8
@@ -2409,6 +2415,11 @@ packages:
       react: '*'
       react-native: '*'
 
+  expo-location@18.0.10:
+    resolution: {integrity: sha512-R0Iioz0UZ9Ts8TACPngh8uDFbajJhVa5/igLqWB8Pq/gp8UHuwj7PC8XbZV7avsFoShYjaxrOhf4U7IONeKLgg==}
+    peerDependencies:
+      expo: '*'
+
   expo-modules-autolinking@2.1.10:
     resolution: {integrity: sha512-k93fzoszrYTKbZ51DSVnewYIGUV6Gi22Su8qySXPFJEfvtDs2NUUNRHBZNKgLHvwc6xPzVC5j7JYbrpXNuY44A==}
     hasBin: true
@@ -2440,6 +2451,11 @@ packages:
     peerDependencies:
       react: '*'
       react-native: '*'
+
+  expo-task-manager@11.5.0:
+    resolution: {integrity: sha512-Fe7d9VqMk5PVZlnPdObeRNH38qr43j2749ZC+hRDz7CS3lNOTYfj1lV/RGFsXNl8oPdmsZ7oiPti5vp2yXN40w==}
+    peerDependencies:
+      expo: '*'
 
   expo@53.0.9:
     resolution: {integrity: sha512-UFG68aVOpccg3s++S3pbtI3YCQCnlu/TFvhnQ5vaD3vhOox1Uk/f2O2T95jmwA/EvKvetqGj34lys3DNXvPqgQ==}
@@ -4461,6 +4477,9 @@ packages:
   unicode-property-aliases-ecmascript@2.1.0:
     resolution: {integrity: sha512-6t3foTQI9qne+OZoVQB/8x8rk2k1eVy1gRXhV3oFQ5T6R1dqQ1xtin3XqSlx3+ATBkliTaR/hHyJBm+LVPNM8w==}
     engines: {node: '>=4'}
+
+  unimodules-app-loader@4.3.0:
+    resolution: {integrity: sha512-hEHB/OX11T0yuAV5yMvfdEy2/M9UPJT8nVpbbhQFEXvZcTuDnNDgJPrtOsOkgD/n3zxM7zvqaeytzz6yKq/6Wg==}
 
   unique-string@2.0.0:
     resolution: {integrity: sha512-uNaeirEPvpZWSgzwsPGtU2zVSTrn/8L5q/IexZmH0eH6SA73CmAA5U4GwORTxQAZs95TAXLNqeLoPPNO5gZfWg==}
@@ -7654,6 +7673,10 @@ snapshots:
       - expo
       - supports-color
 
+  expo-location@18.0.10(expo@53.0.9(@babel/core@7.27.1)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)):
+    dependencies:
+      expo: 53.0.9(@babel/core@7.27.1)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+
   expo-modules-autolinking@2.1.10:
     dependencies:
       '@expo/spawn-async': 1.7.2
@@ -7704,6 +7727,11 @@ snapshots:
       react-native: 0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)
       react-native-edge-to-edge: 1.6.0(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
       react-native-is-edge-to-edge: 1.1.7(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+
+  expo-task-manager@11.5.0(expo@53.0.9(@babel/core@7.27.1)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)):
+    dependencies:
+      expo: 53.0.9(@babel/core@7.27.1)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+      unimodules-app-loader: 4.3.0
 
   expo@53.0.9(@babel/core@7.27.1)(@expo/metro-runtime@5.0.4(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.2(@babel/core@7.27.1)(@react-native-community/cli@12.1.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0):
     dependencies:
@@ -10063,6 +10091,8 @@ snapshots:
   unicode-match-property-value-ecmascript@2.2.0: {}
 
   unicode-property-aliases-ecmascript@2.1.0: {}
+
+  unimodules-app-loader@4.3.0: {}
 
   unique-string@2.0.0:
     dependencies:

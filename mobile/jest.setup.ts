@@ -20,3 +20,15 @@ jest.mock('react-i18next', () => ({
     i18n: { changeLanguage: () => new Promise(() => {}) },
   }),
 }));
+
+// Mock Expo Location & TaskManager for background geofence tests
+jest.mock('expo-location', () => ({
+  requestForegroundPermissionsAsync: jest.fn(() => Promise.resolve({ status: 'granted' })),
+  requestBackgroundPermissionsAsync: jest.fn(() => Promise.resolve({ status: 'granted' })),
+  startLocationUpdatesAsync: jest.fn(() => Promise.resolve()),
+  Accuracy: { High: 3 },
+}));
+
+jest.mock('expo-task-manager', () => ({
+  defineTask: jest.fn(),
+}));
