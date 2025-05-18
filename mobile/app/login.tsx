@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { supabase } from '../lib/supabaseClient'; // Import Supabase client
-
-// It's good practice to manage colors and styles centrally
-// For now, we define them here, but consider moving to a theme/styles file.
+import { supabase } from '@/lib/supabaseClient'; 
+import { useRouter } from 'expo-router'; 
 
 const LoginScreen = () => {
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  // const navigation = useNavigation(); // If using react-navigation
+  const router = useRouter(); 
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -26,20 +24,15 @@ const LoginScreen = () => {
       });
 
       if (error) {
-        // Log the full error for debugging, but show a user-friendly message
         console.error('Supabase login error:', error);
         Alert.alert(t('login.errorTitle'), error.message || t('login.errorUnexpected'));
       } else if (data.user) {
-        // Successful login
-        // For now, just an alert. Later, you'd navigate or update global auth state.
-        Alert.alert(t('login.successTitle', 'Login Successful'), t('login.successMessage', 'You are now logged in! User ID: ') + data.user.id);
-        // navigation.navigate('AppMain'); // Example navigation
+        Alert.alert(t('login.successTitle', 'Login Successful'), t('login.successMessage', 'Welcome back!')); 
+        router.replace('/'); 
       } else {
-        // Should not happen if there's no error and no user, but good to cover
         Alert.alert(t('login.errorTitle'), t('login.errorUnexpected'));
       }
     } catch (error: any) {
-      // Catch any other unexpected errors during the async operation
       console.error('Unexpected error during login:', error);
       Alert.alert(t('login.errorTitle'), error.message || t('login.errorUnexpected'));
     } finally {
@@ -81,13 +74,19 @@ const LoginScreen = () => {
         )}
       </TouchableOpacity>
 
-      {/* Placeholder for forgot password and sign up links */}
-      {/* <TouchableOpacity onPress={() => {/* navigation.navigate('ForgotPassword') */}}>
+      {/* Placeholder for forgot password link */}
+      {/* 
+      <TouchableOpacity onPress={() => router.push('/forgot-password')}>
         <Text style={styles.linkText}>{t('login.forgotPassword')}</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => {/* navigation.navigate('SignUp') */}}>
+      */}
+
+      {/* Placeholder for sign up link */}
+      {/* 
+      <TouchableOpacity onPress={() => router.push('/signup')}>
         <Text style={styles.linkText}>{t('login.noAccountSignUp')}</Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
+      */}
     </View>
   );
 };
@@ -98,7 +97,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#f5f5f5', // A light background color
+    backgroundColor: '#f5f5f5', 
   },
   title: {
     fontSize: 28,
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
   button: {
     width: '100%',
     height: 50,
-    backgroundColor: '#007bff', // A common primary color
+    backgroundColor: '#007bff', 
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,

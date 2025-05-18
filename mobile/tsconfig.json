@@ -5,6 +5,10 @@
     "skipLibCheck": true,
     "jsx": "react-jsx",
     "types": ["jest", "react-native"],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   }
 }

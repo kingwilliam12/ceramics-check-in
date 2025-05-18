@@ -18,16 +18,19 @@
     "@sentry/react-native": "^5.25.1",
     "@supabase/supabase-js": "^2.42.4",
     "expo": "~53.0.9",
+    "expo-dev-client": "^5.1.8",
     "expo-location": "~18.0.1",
     "expo-router": "~5.0.7",
     "expo-status-bar": "~2.2.3",
     "expo-task-manager": "~11.5.0",
     "i18next": "^23.10.1",
     "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-i18next": "^13.2.1",
     "react-native": "0.79.2",
     "react-native-gesture-handler": "~2.15.0",
-    "react-native-url-polyfill": "^2.0.0"
+    "react-native-url-polyfill": "^2.0.0",
+    "react-native-web": "^0.20.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

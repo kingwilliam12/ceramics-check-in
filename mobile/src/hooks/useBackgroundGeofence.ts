@@ -8,7 +8,7 @@ import { checkIn } from '../api/checkIn';
 const TASK_NAME = 'background-geofence';
 const TARGET_POINT = { latitude: 55.6761, longitude: 12.5683 }; // Copenhagen example
 
-TaskManager.defineTask(TASK_NAME, ({ data, error, executionInfo }) => {
+TaskManager.defineTask(TASK_NAME, async ({ data, error, executionInfo }) => {
   if (error) {
     console.error('Geofence task error', error);
     return;
