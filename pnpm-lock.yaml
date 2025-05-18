@@ -12,8 +12,8 @@ importers:
         specifier: ^0.24.13
         version: 0.24.13(graphql@15.8.0)
       '@expo/config':
-        specifier: ^1.0.5
-        version: 1.0.5
+        specifier: ^11.0.10
+        version: 11.0.10
       expo-router:
         specifier: 3.4.8
         version: 3.4.8(1132725e94e195c790b92027511db7a1)
@@ -675,9 +675,6 @@ packages:
 
   '@expo/config-types@53.0.4':
     resolution: {integrity: sha512-0s+9vFx83WIToEr0Iwy4CcmiUXa5BgwBmEjylBB2eojX5XAMm9mJvw9KpjAb8m7zq2G0Q6bRbeufkzgbipuNQg==}
-
-  '@expo/config@1.0.5':
-    resolution: {integrity: sha512-2fY83PjSXc4oszh+mcD5iFgNVuVYEWyXczGvrrxLsfLbzKudfEm/eSbD/GVQZJ3rEbjY+o4KTiw3PIRNq5dlFw==}
 
   '@expo/config@11.0.10':
     resolution: {integrity: sha512-8S8Krr/c5lnl0eF03tA2UGY9rGBhZcbWKz2UWw5dpL/+zstwUmog8oyuuC8aRcn7GiTQLlbBkxcMeT8sOGlhbA==}
@@ -2140,10 +2137,6 @@ packages:
   fs-extra@11.3.0:
     resolution: {integrity: sha512-Z4XaCL6dUDHfP/jT25jJKMmtxvuwbkrD1vNSMFlo9lNLY2c5FHYSQgHPRZUjAB26TpDEoW9HCOgplrdbaPV/ew==}
     engines: {node: '>=14.14'}
-
-  fs-extra@7.0.1:
-    resolution: {integrity: sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==}
-    engines: {node: '>=6 <7 || >=8'}
 
   fs-extra@8.1.0:
     resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
@@ -4895,13 +4888,6 @@ snapshots:
 
   '@expo/config-types@53.0.4': {}
 
-  '@expo/config@1.0.5':
-    dependencies:
-      '@expo/json-file': 8.3.3
-      fs-extra: 7.0.1
-      resolve-from: 4.0.0
-      slugify: 1.6.6
-
   '@expo/config@11.0.10':
     dependencies:
       '@babel/code-frame': 7.10.4
@@ -6766,12 +6752,6 @@ snapshots:
       jsonfile: 6.1.0
       universalify: 2.0.1
 
-  fs-extra@7.0.1:
-    dependencies:
-      graceful-fs: 4.2.11
-      jsonfile: 4.0.0
-      universalify: 0.1.2
-
   fs-extra@8.1.0:
     dependencies:
       graceful-fs: 4.2.11
@@ -7176,6 +7156,7 @@ snapshots:
   jsonfile@4.0.0:
     optionalDependencies:
       graceful-fs: 4.2.11
+    optional: true
 
   jsonfile@6.1.0:
     dependencies:
@@ -8553,7 +8534,8 @@ snapshots:
     dependencies:
       crypto-random-string: 2.0.0
 
-  universalify@0.1.2: {}
+  universalify@0.1.2:
+    optional: true
 
   universalify@1.0.0: {}
 
