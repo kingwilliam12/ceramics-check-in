@@ -1,12 +1,14 @@
 import React from 'react';
 import { Stack } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { View, StyleSheet } from 'react-native';
 import SwipeCheckIn from '../src/components/SwipeCheckIn';
 
 export default function IndexScreen() {
+  const router = useRouter();
   const handleSwipe = () => {
-    console.log('✔ Checked in');
-    // TODO: trigger Supabase mutation or enqueue offline task
+    const last = new Date().toISOString();
+    router.push({ pathname: '/status', params: { last } });
   };
 
   return (
