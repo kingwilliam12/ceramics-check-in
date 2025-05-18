@@ -32,3 +32,23 @@ jest.mock('expo-location', () => ({
 jest.mock('expo-task-manager', () => ({
   defineTask: jest.fn(),
 }));
+
+jest.mock('@supabase/supabase-js', () => ({
+  createClient: () => ({
+    rpc: jest.fn(() => ({ error: null })),
+  }),
+}));
+
+jest.mock('expo-constants', () => ({
+  expoConfig: { extra: { supabaseUrl: 'https://example.supabase.co', supabaseAnonKey: 'anon' } },
+}));
+
+// Mock gesture-handler for tests relying on SwipeCheckIn
+jest.mock('react-native-gesture-handler', () => {
+  const Actual = jest.requireActual('react-native-gesture-handler');
+  return {
+    ...Actual,
+    PanGestureHandler: ({ children }: any) => children,
+    State: { END: 'END' },
+  };
+});

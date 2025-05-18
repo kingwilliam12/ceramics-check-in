@@ -25,7 +25,8 @@
     "react-i18next": "^13.2.1",
     "@sentry/react-native": "^5.25.1",
     "expo-location": "~18.0.1",
-    "expo-task-manager": "~11.5.0"
+    "expo-task-manager": "~11.5.0",
+    "@supabase/supabase-js": "^2.42.4"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
