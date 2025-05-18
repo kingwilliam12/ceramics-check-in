@@ -1,0 +1,25 @@
+{
+  "name": "ceramics-check-in",
+  "private": true,
+  "packageManager": "pnpm@8",
+  "scripts": {
+    "lint": "echo 'root lint ✅'",
+    "test": "echo 'root test ✅'",
+    "type-check": "echo 'root type-check ✅'",
+    "prepare": "husky install || true"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "husky": "^8.0.0",
+    "turbo": "^1.11.0"
+  },
+  "workspaces": [
+    "mobile",
+    "admin",
+    "shared"
+  ],
+  "dependencies": {
+    "expo-router": "3.4.8"
+  }
+}

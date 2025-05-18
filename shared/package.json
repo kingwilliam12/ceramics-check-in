@@ -1,0 +1,11 @@
+{
+  "name": "shared",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "lint": "echo 'lint shared'",
+    "test": "echo 'test shared'",
+    "type-check": "echo 'type-check shared'"
+  }
+}

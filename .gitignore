@@ -1,0 +1,14 @@
+node_modules
+.pnpm
+.turbo
+.expo
+.next
+.DS_Store
+vendor/bundle
+vendor/cache
+vendor/gems
+vendor/rubynode_modules
+.pnpm
+.turbo
+.expo
+.next

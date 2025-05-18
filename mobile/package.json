@@ -1,0 +1,21 @@
+{
+  "name": "mobile",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "echo 'expo start placeholder'",
+    "lint": "echo 'lint mobile'",
+    "test": "echo 'test mobile'",
+    "type-check": "echo 'type-check mobile'"
+  },
+  "dependencies": {
+    "expo": "50.0.0",
+    "expo-router": "3.4.8",
+    "react": "18.2.0",
+    "react-native": "0.73.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0"
+  }
+}
