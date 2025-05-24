@@ -1,5 +1,4 @@
 # Dependencies
-node_modules
 .pnpm
 
 # Build outputs
@@ -23,3 +22,4 @@ vendor/rubynode_modules
 
 # Specifically for the mobile app's .env
 mobile/.env
+node_modules

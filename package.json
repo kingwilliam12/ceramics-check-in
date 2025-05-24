@@ -1,18 +1,27 @@
 {
   "name": "ceramics-check-in",
   "private": true,
-  "packageManager": "pnpm@8",
+  "packageManager": "pnpm@10.10.0",
   "scripts": {
-    "lint": "echo 'root lint ✅'",
-    "test": "echo 'root test ✅'",
-    "type-check": "echo 'root type-check ✅'",
+    "start:mobile": "cd mobile && pnpm start",
+    "start:admin": "cd admin && pnpm dev",
+    "build:mobile": "cd mobile && pnpm build",
+    "build:admin": "cd admin && pnpm build",
+    "test": "echo 'Running tests for all workspaces...' && turbo run test",
+    "lint": "echo 'Linting all workspaces...' && turbo run lint",
+    "type-check": "echo 'Type checking all workspaces...' && turbo run type-check",
     "prepare": "husky install || true"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.0",
-    "@commitlint/config-conventional": "^17.0.0",
-    "husky": "^8.0.0",
-    "turbo": "^1.11.0"
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "@expo/metro-config": "0.20.14",
+    "@types/node": "^20.0.0",
+    "eslint": "^8.49.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.3",
+    "turbo": "^1.11.0",
+    "typescript": "~5.3.3"
   },
   "workspaces": [
     "mobile",
@@ -22,7 +31,21 @@
   "dependencies": {
     "@expo/cli": "^0.24.13",
     "@expo/config": "^11.0.10",
-    "expo-router": "5.0.7",
-    "metro": "0.82.3"
+    "expo": "~50.0.10",
+    "expo-router": "~3.4.7",
+    "metro": "0.76.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "18.2.0",
+      "react-dom": "18.2.0",
+      "react-native": "0.72.10",
+      "@types/react": "~18.2.0",
+      "@types/react-native": "~0.72.0"
+    }
   }
 }
