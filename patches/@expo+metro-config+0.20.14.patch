@@ -1,0 +1,25 @@
+diff --git a/node_modules/@expo/metro-config/build/serializer/reconcileTransformSerializerPlugin.js b/node_modules/@expo/metro-config/build/serializer/reconcileTransformSerializerPlugin.js
+index 1234567..89abcde 100644
+--- a/node_modules/@expo/metro-config/build/serializer/reconcileTransformSerializerPlugin.js
++++ b/node_modules/@expo/metro-config/build/serializer/reconcileTransformSerializerPlugin.js
+@@ -8,7 +8,19 @@ var _metroTransformWorker = require("metro-transform-worker");
+ var _getCssDeps = require("../transform-worker/getCssDeps");
+ var _env = require("../env");
+ var _withExpoSerializers = require("./withExpoSerializers");
+-const importLocationsPlugin = require('metro/src/ModuleGraph/worker/importLocationsPlugin');
++
++// Patch: Handle missing importLocationsPlugin
++let importLocationsPlugin = () => ({});
++try {
++  // Try to import the module
++  importLocationsPlugin = require('metro/src/ModuleGraph/worker/importLocationsPlugin');
++  // Handle both ESM and CJS exports
++  if (importLocationsPlugin && importLocationsPlugin.default) {
++    importLocationsPlugin = importLocationsPlugin.default;
++  }
++} catch (error) {
++  console.warn('Failed to load importLocationsPlugin, using no-op implementation');
++}
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+ // A serializer that can be used to shift all of the source map processing to the worker thread.
+ // This is useful for performance reasons, but it can also be used to debug issues with the source map generation.
