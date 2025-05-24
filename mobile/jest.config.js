@@ -1,4 +1,40 @@
 module.exports = {
   preset: 'jest-expo',
-  setupFilesAfterEnv: ['./jest.setup.ts'],
+  transformIgnorePatterns: [
+    'node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)',
+  ],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  moduleNameMapper: {
+    '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@screens/(.*)$': '<rootDir>/src/screens/$1',
+    '^@navigation/(.*)$': '<rootDir>/src/navigation/$1',
+    '^@assets/(.*)$': '<rootDir>/assets/$1',
+    '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
+    '^@services/(.*)$': '<rootDir>/src/services/$1',
+    '^@utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^@constants/(.*)$': '<rootDir>/src/constants/$1',
+    '^@context/(.*)$': '<rootDir>/src/context/$1',
+    '^@types/(.*)$': '<rootDir>/src/types/$1',
+    '^@theme$': '<rootDir>/src/constants/theme',
+    '^@app$': '<rootDir>/App',
+  },
+  setupFiles: [
+    './node_modules/react-native-gesture-handler/jestSetup.js',
+    './jest.setup.js',
+  ],
+  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
+  collectCoverage: true,
+  collectCoverageFrom: [
+    '**/*.{js,jsx,ts,tsx}',
+    '!**/coverage/**',
+    '!**/node_modules/**',
+    '!**/babel.config.js',
+    '!**/jest.setup.js',
+    '!**/jest.config.js',
+  ],
+  coverageReporters: ['json', 'lcov', 'text', 'clover'],
+  testEnvironment: 'jsdom',
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
+  },
 };
