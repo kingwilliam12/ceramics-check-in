@@ -7,8 +7,9 @@ import { Database } from '../types/supabase';
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL || 'your-supabase-url';
 const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || 'your-supabase-anon-key';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase URL or Anon Key. Please check your environment variables.');
+if (!supabaseUrl || supabaseUrl === 'your-supabase-url' || !supabaseAnonKey || supabaseAnonKey === 'your-supabase-anon-key') {
+  console.error('CRITICAL: Supabase URL or Anon Key is missing or using placeholder values. URL:', supabaseUrl, 'Key:', supabaseAnonKey);
+  throw new Error('Missing or placeholder Supabase URL or Anon Key. Please check your environment variables and ensure they are loaded correctly.');
 }
 
 export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
@@ -24,6 +25,7 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
 export const handleError = (error: any, context?: string) => {
   console.error(`Error${context ? ` in ${context}` : ''}:`, error);
   return {
+    data: null,
     error: {
       message: error.message || 'An unexpected error occurred',
       details: error,

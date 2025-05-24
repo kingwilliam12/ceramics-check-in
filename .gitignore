@@ -1,5 +1,7 @@
 # Dependencies
 .pnpm
+node_modules
+
 
 # Build outputs
 .turbo
@@ -13,7 +15,7 @@
 vendor/bundle
 vendor/cache
 vendor/gems
-vendor/rubynode_modules
+vendor/ruby
 
 # Environment variables
 **/.env
@@ -22,7 +24,7 @@ vendor/rubynode_modules
 
 # Specifically for the mobile app's .env
 mobile/.env
-node_modules
+
 # Backup and temporary files
 backup_old_mobile/
 package-lock.json

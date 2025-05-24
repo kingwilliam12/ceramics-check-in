@@ -19,7 +19,7 @@ export type MainTabParamList = {
 
 // Data types
 // User role type
-export type UserRole = 'admin' | 'staff' | 'member';
+export type UserRole = 'admin' | 'staff' | 'member' | 'super_admin';
 
 export interface Member {
   id: string;

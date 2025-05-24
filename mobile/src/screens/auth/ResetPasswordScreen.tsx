@@ -291,6 +291,7 @@ export const ResetPasswordScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 };

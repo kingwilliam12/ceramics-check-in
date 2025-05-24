@@ -127,7 +127,8 @@ export const LoginScreen = () => {
               </TouchableOpacity>
             </View>
           </View>
-      </View>
+        </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 };

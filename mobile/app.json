@@ -6,21 +6,26 @@
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": null,
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.dndcheckin"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": null,
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.yourcompany.dndcheckin"
     },
     "web": {
-      "favicon": null
+      "favicon": "./assets/favicon.png"
     },
     "plugins": []
   }
