@@ -25,9 +25,24 @@ Key areas of progress include foundational project structures, initial UI for mo
     - `[x]` Implement Supabase Edge Function for `check_in`.
         - `[x]` Include "Overlap rule" logic (update existing session if open).
     - `[x]` Implement Supabase Edge Function for `check_out`.
+    - `[x]` Implement admin interface for user management
+        - `[x]` Create admin screens (dashboard, user list, add/edit user)
+        - `[x]` Implement role-based access control (admin, staff, member)
+        - `[x]` Add user status management (active, inactive, suspended)
+        - `[x]` Implement password reset functionality
+        - `[x]` Add audit logging for admin actions
+        - `[x]` Create database migrations for admin features
+        - `[x]` Implement permission utilities and hooks
 2.  **Database Schema Finalization (PRD: Section 7)**
     - `[x]` Align `members` table with PRD: add `email`, `photo_url`, `status`; ensure `full_name` (or map `firstName`, `lastName`).
     - `[x]` Align `sessions` table with PRD: use `check_in`, `check_out`; add `auto_closed` boolean.
+    - `[x]` Create `profiles` table for user roles and additional profile data
+    - `[x]` Add database functions for check-in/check-out operations
+    - `[x]` Implement auto-checkout function for sessions exceeding max duration
+    - `[x]` Add comprehensive RLS policies for all tables
+    - `[x]` Create necessary indexes for performance
+    - `[x]` Add database triggers for updated_at timestamps
+    - `[x]` Add comments and documentation for all database objects
 3.  **Row-Level Security Policies (PRD: B-3)**
     - `[x]` Define and implement RLS policies for `members` (e.g., members can read their own, admin can read all).
     - `[x]` Define and implement RLS policies for `sessions` (e.g., members can read their own, admin can read all).
@@ -53,12 +68,27 @@ Key areas of progress include foundational project structures, initial UI for mo
 #### To Do (Suggested Order):
 
 1.  **Authentication (PRD: F-1, S-1, S-2, S-3, S-4)**
-    - `[~]` Implement Email + Password login screen and logic (UI created, Supabase integration next).
-    - `[~]` Integrate with Supabase Auth (Login functionality added to LoginScreen).
-    - `[x]` Implement session retention (secure token storage - handled by Supabase client with AsyncStorage).
-    - `[~]` Implement password strength checks (client-side validation, if any - deferred as per user).
-    - `[ ]` Implement password reset flow UI.
-    - `[ ]` Handle rate limiting feedback from backend if applicable.
+    - `[x]` Implement Email + Password login screen and logic
+    - `[x]` Integrate with Supabase Auth
+    - `[x]` Implement session retention (secure token storage)
+    - `[x]` Implement password strength checks (client-side validation)
+        - Added zxcvbn-ts for password strength validation
+        - Visual feedback for password requirements
+        - Real-time validation in both sign-up and password reset flows
+    - `[x]` Implement password reset flow UI and logic
+        - Forgot password screen
+        - Password reset with token validation
+        - Password strength enforcement
+    - `[x]` Add user registration flow
+        - Sign-up screen with full name, email, and password
+        - Client-side validation
+        - Automatic profile creation in members table
+    - `[x]` Implement role-based navigation and access control
+    - `[ ]` Handle rate limiting feedback from backend
+    - `[ ]` Implement session expiry and token refresh logic
+    - `[ ]` Add email verification flow
+        - UI for resending verification email
+        - Handling of verification status in the app
 2.  **Core Check-in Screen & Flow (PRD: F-2)**
     - `[~]` Integrate `SwipeCheckIn.tsx` into main app flow post-login (Auth layout and login redirect implemented).
     - `[ ]` Implement display of current check-in status.

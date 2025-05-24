@@ -8,6 +8,7 @@ type AuthContextType = {
   user: Member | null;
   isLoading: boolean;
   signIn: (email: string, password: string) => Promise<{ error: any }>;
+  signUp: (email: string, password: string, fullName: string) => Promise<{ error: any }>;
   signOut: () => Promise<{ error: any }>;
   resetPassword: (email: string) => Promise<{ error: any }>;
   updatePassword: (newPassword: string) => Promise<{ error: any }>;
@@ -27,15 +28,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setSession(newSession);
         
         if (newSession?.user) {
-          // Fetch user profile from your database
+          // Fetch user profile from members and profiles tables
           const { data: userData, error } = await supabase
             .from('members')
-            .select('*')
+            .select(`
+              *,
+              profiles (
+                role
+              )
+            `)
             .eq('id', newSession.user.id)
             .single();
             
           if (!error && userData) {
-            setUser(userData);
+            // Merge member data with profile role
+            const memberWithRole = {
+              ...userData,
+              role: userData.profiles?.[0]?.role || 'member' as const,
+            };
+            setUser(memberWithRole);
           }
         } else {
           setUser(null);
@@ -53,13 +64,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (currentSession?.user) {
         const { data: userData, error } = await supabase
           .from('members')
-          .select('*')
+          .select(`
+            *,
+            profiles (
+              role
+            )
+          `)
           .eq('id', currentSession.user.id)
           .single();
           
         if (!error && userData) {
-          setUser(userData);
+          // Merge member data with profile role
+          const memberWithRole = {
+            ...userData,
+            role: userData.profiles?.[0]?.role || 'member' as const,
+          };
+          setUser(memberWithRole);
         }
+      } else {
+        setUser(null);
       }
       
       setIsLoading(false);
@@ -84,6 +107,63 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return { error: null };
     } catch (error) {
       console.error('Error signing in:', error);
+      return { error };
+    }
+  };
+
+  const signUp = async (email: string, password: string, fullName: string) => {
+    try {
+      // 1. Sign up the user with Supabase Auth
+      const { data: authData, error: signUpError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: fullName,
+          },
+        },
+      });
+
+      if (signUpError) throw signUpError;
+      if (!authData.user) throw new Error('No user returned after sign up');
+
+      // 2. Create a corresponding member record in the database
+      const { error: memberError } = await supabase
+        .from('members')
+        .insert([
+          {
+            id: authData.user.id,
+            email,
+            full_name: fullName,
+            status: 'active',
+            role: 'member', // Default role
+          },
+        ]);
+
+      if (memberError) throw memberError;
+
+      // 3. Create a profile record with default role
+      const { error: profileError } = await supabase
+        .from('profiles')
+        .insert([
+          {
+            id: authData.user.id,
+            email,
+            full_name: fullName,
+            role: 'member', // Default role
+          },
+        ]);
+
+      if (profileError) throw profileError;
+
+      return { error: null };
+    } catch (error) {
+      console.error('Error signing up:', error);
+      // Clean up if there was an error after user was created
+      if (authData?.user) {
+        await supabase.auth.admin.deleteUser(authData.user.id);
+        await supabase.from('members').delete().eq('id', authData.user.id);
+      }
       return { error };
     }
   };
@@ -128,6 +208,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     user,
     isLoading,
     signIn,
+    signUp,
     signOut,
     resetPassword,
     updatePassword,
