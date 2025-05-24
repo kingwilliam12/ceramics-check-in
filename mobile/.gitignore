@@ -1,37 +1,118 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
-# dependencies
+# Dependencies
 node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+.nyc_output/
 
 # Expo
 .expo/
 dist/
 web-build/
-expo-env.d.ts
+web-build-tests/
 
 # Native
-.kotlin/
+android/
+ios/
 *.orig.*
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+ios/.xcode.env.local
 
 # Metro
 .metro-health-check*
 
-# debug
+# Debug
 npm-debug.*
 yarn-debug.*
 yarn-error.*
 
-# macOS
+# Logs
+logs
+*.log
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
 .DS_Store
-*.pem
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# local env files
-.env*.local
+# Local environment variables
+.env
+.env.*.local
+!.env.example
 
-# typescript
+# Build outputs
+build/
+dist/
 *.tsbuildinfo
+
+# Package Manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# TypeScript
+*.tsbuildinfo
+
+# Misc
+.cache/
+.temp/
+.tmp/
+.temp*
+.tmp*
+
+# Keep this if you're using npm
+package-lock.json
+
+# Keep this if you're using Yarn
+yarn-error.log
+
+# Keep this if you're using pnpm
+pnpm-lock.yaml
+
+# Keep this if you're using Bun
+bun.lockb
+
+# Keep this if you're using pnpm
+.pnpm-store/
+
+# Keep this if you're using pnpm
+.pnpm-debug.log
+
+# Keep this if you're using pnpm
+.pnpmfile.cjs

@@ -1,30 +1,27 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "D&D Check-In",
+    "slug": "dnd-check-in",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
+      "image": null,
       "backgroundColor": "#ffffff"
     },
+    "assetBundlePatterns": [],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": null,
         "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+      }
     },
-    "scheme": "ceramics",
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": null
+    },
+    "plugins": []
   }
 }
