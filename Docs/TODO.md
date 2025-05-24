@@ -60,7 +60,7 @@ Key areas of progress include foundational project structures, initial UI for mo
     - `[ ]` Implement password reset flow UI.
     - `[ ]` Handle rate limiting feedback from backend if applicable.
 2.  **Core Check-in Screen & Flow (PRD: F-2)**
-    - `[ ]` Integrate `SwipeCheckIn.tsx` into main app flow post-login.
+    - `[~]` Integrate `SwipeCheckIn.tsx` into main app flow post-login (Auth layout and login redirect implemented).
     - `[ ]` Implement display of current check-in status.
     - `[ ]` Implement session timer display.
     - `[ ]` Connect `checkIn.ts` API call to `SwipeCheckIn.tsx` and backend `check_in` function.
@@ -145,9 +145,23 @@ Key areas of progress include foundational project structures, initial UI for mo
 ## III. Next Steps - Suggested Focus Order
 
 1.  **Backend Core:** Prioritize finalizing the core `check_in`/`check_out` Edge Functions and RLS policies. This is foundational for both mobile and admin apps.
-2.  **Mobile Core Auth & Check-in:** Implement mobile user authentication and the primary check-in/out swipe flow, connecting it to the backend functions.
-3.  **Mobile Advanced Features:** Integrate and thoroughly test geofencing and offline queueing.
-4.  **Admin Core Auth & Views:** Implement admin authentication and the session viewing/export features.
-5.  **Backend Support:** Complete `autoCheckout` cron logic.
-6.  **Iterative Refinement & Testing:** Continuously test, address security requirements, implement non-functional requirements, and populate localization content across all platforms.
-7.  **CI/CD & Polish:** Finalize CI/CD, address PRD open items, and perform final QA.
+2.  **Mobile UI Components:** Implement reusable UI components for the mobile app.
+    - `[x]` Create Button component with variants and loading states
+    - `[x]` Create Text component with typography variants
+    - `[x]` Create Input component with validation
+    - `[x]` Create Card component for content containers
+    - `[x]` Create Loading component with different sizes
+    - `[x]` Create Icon component with support for multiple icon libraries
+    - `[x]` Create Badge component for status indicators
+    - `[x]` Create Divider component for visual separation
+    - `[x]` Create List component for displaying collections
+    - `[x]` Create Modal component for dialogs and overlays
+    - `[x]` Create Toast component for notifications
+    - `[x]` Create Tooltip component for contextual help
+
+3.  **Mobile Core Auth & Check-in:** Implement mobile user authentication and the primary check-in/out swipe flow, connecting it to the backend functions.
+4.  **Mobile Advanced Features:** Integrate and thoroughly test geofencing and offline queueing.
+5.  **Admin Core Auth & Views:** Implement admin authentication and the session viewing/export features.
+6.  **Backend Support:** Complete `autoCheckout` cron logic.
+7.  **Iterative Refinement & Testing:** Continuously test, address security requirements, implement non-functional requirements, and populate localization content across all platforms.
+8.  **CI/CD & Polish:** Finalize CI/CD, address PRD open items, and perform final QA.
