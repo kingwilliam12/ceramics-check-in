@@ -5,14 +5,17 @@
   "main": "App.tsx",
   "scripts": {
     "start": "npx expo start --clear",
-    "android": "npx expo start --android",
-    "ios": "npx expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "npx expo start --web",
     "test": "pnpm test",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf $TMPDIR/metro-* $TMPDIR/haste-* $TMPDIR/react-* 2>/dev/null || true && rm -rf node_modules/.cache && rm -rf .expo",
-    "reset": "pnpm clean && pnpm install"
+    "reset": "pnpm clean && pnpm install",
+    "postinstall": "patch-package",
+    "create-patch": "patch-package react-native --patch-dir patches --package-manager pnpm",
+    "convert:svg": "node scripts/convert-svg-to-png.js"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
@@ -26,6 +29,7 @@
     "@zxcvbn-ts/language-en": "^3.0.2",
     "expo": "~50.0.10",
     "expo-constants": "~15.4.5",
+    "expo-dev-client": "^5.1.8",
     "expo-font": "~11.10.2",
     "expo-linking": "~6.2.2",
     "expo-location": "~16.5.3",
@@ -37,12 +41,12 @@
     "react-native": "0.73.6",
     "react-native-gesture-handler": "~2.14.0",
     "react-native-paper": "^5.14.5",
+    "react-native-reanimated": "~3.6.2",
     "react-native-safe-area-context": "4.8.2",
     "react-native-screens": "~3.29.0",
     "react-native-url-polyfill": "^2.0.0",
     "react-native-vector-icons": "^10.0.0",
-    "react-native-web": "~0.19.6",
-    "react-native-reanimated": "~3.6.2"
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "jest": "^29.7.0",
@@ -53,9 +57,11 @@
     "metro-react-native-babel-preset": "0.77.0",
     "metro-resolver": "0.80.5",
     "metro-source-map": "0.80.5",
+    "patch-package": "^8.0.0",
     "react-test-renderer": "18.2.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.3.3"
+    "sharp": "^0.33.3",
+    "typescript": "^5.0.0"
   },
   "overrides": {
     "react-native": "0.73.6"

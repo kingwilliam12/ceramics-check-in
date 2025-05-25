@@ -1,8 +1,6 @@
 # Dependencies
 .pnpm
 node_modules
-
-
 # Build outputs
 .turbo
 .expo

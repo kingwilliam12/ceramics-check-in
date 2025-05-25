@@ -18,6 +18,10 @@ export * from './Card';
 export { default as Loading } from './Loading';
 export * from './Loading';
 
+// SwipeCheckIn
+export { default as SwipeCheckIn } from './SwipeCheckIn';
+export * from './SwipeCheckIn';
+
 // Icon
 export { default as Icon } from './Icon';
 export * from './Icon';

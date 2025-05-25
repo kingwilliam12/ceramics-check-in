@@ -90,20 +90,32 @@ Key areas of progress include foundational project structures, initial UI for mo
         - UI for resending verification email
         - Handling of verification status in the app
 2.  **Core Check-in Screen & Flow (PRD: F-2)**
-    - `[~]` Integrate `SwipeCheckIn.tsx` into main app flow post-login (Auth layout and login redirect implemented).
-    - `[ ]` Implement display of current check-in status.
-    - `[ ]` Implement session timer display.
-    - `[ ]` Connect `checkIn.ts` API call to `SwipeCheckIn.tsx` and backend `check_in` function.
-    - `[ ]` Implement manual "Slide to Check Out" and connect to backend `check_out` function.
+    - `[x]` Integrate `SwipeCheckIn.tsx` into main app flow post-login (Auth layout and login redirect implemented).
+    - `[x]` Implement display of current check-in status.
+    - `[x]` Implement session timer display.
+    - `[x]` Connect `checkIn.ts` API call to `SwipeCheckIn.tsx` and backend `check_in` function.
+    - `[x]` Implement manual "Slide to Check Out" and connect to backend `check_out` function.
+    - `[x]` Add error handling for network connectivity issues
+    - `[x]` Implement retry mechanism for failed API calls
+    - `[x]` Add loading states during API calls
+    - `[x]` Implement proper session management
 3.  **Geofence & Auto Check-out Integration (PRD: F-3, S-5)**
-    - `[ ]` Fully implement logic within `useBackgroundGeofence.ts` (150m radius, 12h max session override).
-    - `[ ]` Integrate with `check_out` backend function when geofence conditions met.
-    - `[ ]` Implement robust location permission handling (iOS Always, Android 14+ Background, graceful fallback as per S-5).
-        - `[ ]` Draft and implement copy for second-chance dialog (Open Item #3).
+    - `[x]` Implement core geofencing logic in `useBackgroundGeofence.ts` with configurable radius (default 150m).
+    - `[x]` Integrate with `check_out` backend function when geofence exit is detected.
+    - `[x]` Implement robust location permission handling for both foreground and background.
+    - `[x]` Add user feedback for geofence events.
+    - `[x]` Implement 12h max session override with automatic check-out.
+    - `[x]` Add configuration for geofence center coordinates with environment variable support.
+    - `[ ]` Add tests for geofence functionality.
 4.  **Offline Queue & Sync (PRD: F-4)**
-    - `[ ]` Fully implement logic within `useOfflineQueue.ts` (LocalStorage, sync when online).
-    - `[ ]` Ensure server upserts on sync for overlapping sessions (Open Item #2).
-    - `[ ]` Define and implement offline queue cap (25 unsynced events - Open Item #2).
+    - `[x]` Implement core logic in `useOfflineQueue.ts` with LocalStorage support.
+    - `[x]` Add network detection and automatic sync when online.
+    - `[x]` Implement retry mechanism with exponential backoff.
+    - `[x]` Set queue cap at 25 unsynced events.
+    - `[x]` Ensure server upserts on sync for overlapping sessions.
+    - `[x]` Add UI indicators for offline/syncing states.
+    - `[x]` Implement basic conflict resolution for concurrent modifications.
+    - `[ ]` Add tests for offline queue functionality.
 5.  **Localization Content (PRD: F-5)**
     - `[ ]` Add all English and Swedish copy for UI elements.
 6.  **Accessibility (PRD: Non-Functional)**
@@ -149,6 +161,10 @@ Key areas of progress include foundational project structures, initial UI for mo
 
 - `[x]` Initial file naming conventions generally followed.
 - `[x]` Config files for linting, commit messages (`.commitlint.config.cjs`) in place.
+- `[x]` Implemented SwipeCheckIn component with check-in/out functionality
+- `[x]` Added location services integration
+- `[x]` Created session timer for active check-ins
+- `[x]` Implemented error handling and user feedback
 
 #### To Do (Suggested Order - ongoing throughout development):
 
